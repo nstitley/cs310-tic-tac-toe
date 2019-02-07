@@ -190,66 +190,75 @@ public class TicTacToeModel {
         /* Check the squares of the board to see if the specified mark is the
            winner */
         
-        boolean isWinner = true;
-        
-        for(int col = 0; col < width; ++col){
-            
-            isWinner = true;
-            
-            for(int row = 0; row < width; ++row) {
-                
-                if(board[row][col] != mark) {
+        int count = 0;
+        boolean isWinner = false;
+
+        for (int i = 0; i < width; ++i) {
+
+            count = 0;
+
+            for (int z = 0; z < width; ++z) {
+
+                if (board[i][z].equals(mark)){
                     
-                    isWinner = false;
+                    count++;
+                    
+                }
+                
+                if (count == width) {
+                    
+                    isWinner = true;
                     
                 }
             }
-            if(isWinner) {
-                
-                return true;
-                                              
-            }
         }
-        
-        for(int row = 0; row < width; row++){
-            
-            isWinner = true;
-            
-            for(int col = 0; col < width; col++) {
-                
-                if(board[row][col] != mark) {
+
+        for (int i = 0; i < width; ++i) {
+
+            count = 0;
+
+            for (int z = 0; z < width; ++z) {
+
+                if (board[z][i].equals(mark)){
                     
-                    isWinner = false;
+                    count++;
+                    
+                }
+                
+                if (count == width) {
+                    
+                    isWinner = true;
                     
                 }
             }
-            if(isWinner) {
+        }
+
+        count = 0;
+        for (int i = 0; i < width; ++i) {
+
+            if (board[i][i].equals(mark)){
                 
-                return true;
+                count++;
                 
             }
-        }
-        
-        for(int i = 0; i < width; i++) {
             
-            if(board[i][i] != mark) {
-                
-                isWinner = false;
-                
-            } else if(board[i][i] == mark){
+            if (count == width) {
                 
                 isWinner = true;
                 
             }
         }
-        
-        for(int i = 0; i < width; i++) {
-            
-            if(board[i][width - i - 1] != mark) {
+
+        count = 0;
+        for (int i = 0; i < width; ++i) {
+
+            if (board[i][width - i - 1].equals(mark)){
                 
-                isWinner = false;
-        
-            } else if(board[i][width - i - 1] == mark) {
+                count++;
+                
+            }
+            
+            if (count == width ) {
                 
                 isWinner = true;
                 
@@ -258,7 +267,7 @@ public class TicTacToeModel {
         
         return isWinner;
     }
-	
+        
     private boolean isTie() {
         
         /* Check the squares of the board to see if the game is a tie */
