@@ -21,10 +21,21 @@ public class TicTacToeView {
         /* Prompt the player to enter the row and the column of their next move.
            Return as a TicTacToeMove object. */
         
-        // INSERT YOUR CODE HERE
+        if (isXTurn == true) {
+            System.out.println("Player 1 (X) Move: ");
+        }
+        if (isXTurn == false) {
+            System.out.println("Player 2 (O) Move: ");
+        }
+        
+        System.out.println("Enter the row and column number of your next move (separated by a space): ");
+        
+        int row = keyboard.nextInt();
+        int col = keyboard.nextInt();
+        
+        TicTacToeMove moveObject = new TicTacToeMove(row, col);
 
-        return null; // remove this line later!
-
+        return moveObject; // remove this line later!
     }
 
     public void showInputError() {
@@ -43,6 +54,5 @@ public class TicTacToeView {
         
         System.out.println("\n\n" + board);
         
-    }
-	
+    }	
 }
