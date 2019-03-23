@@ -4,29 +4,32 @@ In this program, the computer will generate a Tic-Tac-Toe game board depending o
 
 ## Getting Started
 
-When you are on the project page [Tic-Tac-Toe](https://github.com/nstitley), you can press the 'Download ZIP' button which is located under the "Clone or Download" drop down box. This will allow you to download the most recent version of the code as a zip archive.
-If you are not able to see the drop down box, it could because you are not on correct page. Look for a button on the left-most tab that you are allowed to click, which is labeled "<> Code".
+When you are on the project page [Tic-Tac-Toe](https://github.com/nstitley/cs310-tic-tac-toe), you can press the 'Download ZIP' button which is located under the "Clone or Download" drop down box. This will allow you to download the most recent version of the code as a zip archive. If you are not able to see the drop down box, it could because you are not on correct page. Look for a button on the left-most tab that you are allowed to click, which is labeled "<> Code".
 
 ## Prerequisites
 
-For running a Java program, you will first need to download and install JDK software. You need to install a software program called Java SE Development Kit (SE refers to Standard Edition). To put it simply, a JDK contains: JRE(Java Runtime Environment), which allows users to run Java programs on their  is the core of the Java platform that enables running Java programs on your computer. The JRE includes JVM(Java Virtual Machine) that runs Java programs by translating from bytecode to platform-dependent code and executes them (Java programs are compiled into an intermediate form called bytecode), and other core libraries such as collections, File I/O, networking, etc.
-Tools and libraries that support Java development.
-The JDK ships with two powerful tools which every Java developer should be familiar with:
-javac.exe: is Java compiler that translates programs written in Java code into bytecode form.
-java.exe: is the Java Virtual Machine launcher that executes bytecode.
-Click on the following link to download the latest version of JDK installer program:
-http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
-Check the option “Accept License Agreement”, and choose an appropriate version for your computer from the list.
+For running a Java program, you will first need to download JDK software. You will then need to install the software program called Java SE Development Kit (SE refers to Standard Edition). To put it simply, a JDK contains: JRE (Java Runtime Environment), which allows users to run Java programs on their PC and is considered the core of the Java platform. The JRE includes the JVM (Java Virtual Machine) that runs Java programs by translating from bytecode to platform-dependent code and executes them.
+
+The javac.exe file is a Java compiler that will translate and then convert the programs written Java code into bytecode form.
+The java.exe file is the Java Virtual Machine (JVM) that executes bytecode.
+
+Here is the link for the latest version of the JDK program:
+https://www.oracle.com/technetwork/java/javase/downloads/index.html
+
+You need to make sure you check the option “Accept License Agreement” and choose the correct version for your computer.
+
+You can run this code from the command line, but you will need to set up environment varibles. I prefer to use NetBeans, which is an integrated development environment for Java. This way, you can edit and run this Java program without having to use the command line.
+Here is the link to download NetBeans: https://netbeans.org/downloads/8.0.2/
 
 ## Running the program
 
-When you want run and/or test the program, you will have to first extract the files within the archive to a new folder. You will want to make sure that both files are within the same folder. Now you will be able to open the HTML file within the browser that you are using. The program should begin running within your browser. You can also utilize the web console to see certain outputs for testing cases.
+When you want to run and/or test the program, you will have to first extract the files within the archive to a new folder. You will want to make sure that all files are within the same folder. Now you want to open NetBeans and click on the "File" tab, then "New project," then select "Java" from the categories section and select "Java Project with Exsiting Sources" from the projects section. You will then fill out the "Name and Location" step. Finally you will arrive at the place where you will add the existing sources, which will be the folder you created that has all the extracted files. Once the project is added into NetBeans, you can simply run it by clicking "Run," which is located near the top-center.
 
-## Program Discussion
+## Program Discussion (Logic)
 
-In response to each of the player's guesses, the computer provides clues which can help the player to crack the code through a process of deduction. The computer checks the digits guessed by the player, compares each of the digits to every one of the digits in the secret code, and determines whether each digit in the player's guess is of the correct identity and in the correct place (these are the "correct" digits), or whether each digit is of the correct identity but is not in the correct place (these are the "misplaced" digits).
+When the players click on the buttons, the Controller (as the event handler) should add the marks to the Model using its makeMark() method.  The Controller should invoke the View's updateButtons() method, which will update the View to reflect the new contents of the game board, using "X" or "O" to indicate the players' marks. Since the View does not have direct access to the Model, it must request the necessary data from the Controller.  The controller will also provide methods to return a reference to the View to the main class (so it can be shown in the GUI), and to implement the ActionListener interface for handling button clicks.
 
-With each guess, it counts the number of "correct" and "misplaced" digits, and displays these totals in the web page, alongside the player's guess, in ordered columns.  The player can use this information to determine which digits need to be exchanged or replaced, until the player's guess exactly matches the secret code.  The computer then prints a message of congratulations, along with the total number of guesses it took the player to crack the code.
+In the JPanel, the squares of the board are implemented as a two-dimensional array of JButton objects whose names are set to "SquareXY" (replacing X with the row and Y with the column). In addition, to display the winning player at the end of the game, a JLabel named "ResultLabel" is added to the bottom of the window. After a winner is determined, the Controller will disable the buttons so that no further moves can be entered.  Display output messages (such as the result at the end of the game) in ResultLabel: this result should be shown in the label as the Result enumeration value, all by itself, converted to uppercase.
 
 ## Contributing
 
@@ -34,4 +37,5 @@ If you want to contribute to this repository, please inform me about the change 
 
 ## Authors
 
+* **Jay Snellen** - [jsnellen](https://github.com/jsnellen)
 * **Nolan Stitley** - [nstitley](https://github.com/nstitley)
